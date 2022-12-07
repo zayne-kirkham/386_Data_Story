@@ -63,7 +63,7 @@ alcohol_night_df%>%
          )+
     scale_alpha_discrete(range=c(.5,1))+
     labs(y="Race:Violation", 
-         x="Gender:Season", 
+         x="Sex:Season", 
          title = "Alcohol = YES | Shift = Night") -> alcohol_night_plot
 
 ########################
@@ -86,7 +86,7 @@ alcohol_day_df%>%
          )+
   scale_alpha_discrete(range=c(.5,1))+
   labs(y = "Race:Violation",
-       x="Gender:Season", 
+       x="Sex:Season", 
        title = "Alcohol = YES | Shift = Day") -> alcohol_day_plot
 
 #############################
@@ -108,7 +108,7 @@ no_alcohol_night_df%>%
          color = guide_legend(override.aes = list(size = 0.5)))+
   scale_alpha_discrete(range=c(.5,1))+
   labs(y="Race:Violation", 
-       x="Gender:Season", 
+       x="Sex:Season", 
        title = "Alcohol = No | Shift = Night") -> no_alcohol_night_plot
 
 ###########################
@@ -131,7 +131,7 @@ no_alcohol_day_df%>%
          color = guide_legend(override.aes = list(size = 0.5)))+
   scale_alpha_discrete(range=c(.5,1))+
   labs(y="Race:Violation", 
-       x="Gender:Season", 
+       x="Sex:Season", 
        title = "Alcohol = No | Shift = Day") -> no_alcohol_day_plot
 
 
