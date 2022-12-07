@@ -33,15 +33,14 @@ no_alcohol_day_df <- data %>%
 ################
 # Context Plot #
 ################
-data %>% ggplot()+
+context_plot <- data %>% 
+  ggplot()+
   geom_mosaic(aes(x = product(shift, Alcohol), 
                   fill = shift)) +
-  theme(axis.text.x = element_text(angle = 90, 
-                                   hjust = 1, 
-                                   vjust = .5)) +
   labs(y="Shift", 
        x="Alcohol", 
-       title = "Alcohol and Shift") -> context_plot
+       title = "Alcohol Presence by Shift",
+       subtitle = "The variables by which the subsequent plots are split on")
 
 ##########################
 # alcohol | Night mosaic #
@@ -56,9 +55,10 @@ alcohol_night_df%>%
                                      vjust = .5),
           legend.title = element_text(size = 10), 
           legend.text = element_text(size = 8),
-          legend.key.size = unit(.5, "lines")) + 
+          legend.key.size = unit(.5, "lines"),
+          legend.position = c(1.15, 0.5)) + 
   guides(y = guide_axis(n.dodge = 1, check.overlap = T),
-         y.sec = guide_axis_manual(breaks = unit(c(.893), "npc"),
+         y.sec = guide_axis_manual(breaks = unit(c(.93), "npc"),
                                    labels = expression("HISPANIC:Warning"))
          )+
     scale_alpha_discrete(range=c(.5,1))+
@@ -79,9 +79,10 @@ alcohol_day_df%>%
                                    vjust = .5),
         legend.title = element_text(size = 10), 
         legend.text = element_text(size = 8),
-        legend.key.size = unit(.5, "lines")) + 
+        legend.key.size = unit(.5, "lines"),
+        legend.position = c(1.15, 0.5)) + 
   guides(y = guide_axis(n.dodge = 1, check.overlap = T),
-         y.sec = guide_axis_manual(breaks = unit(c(.893), "npc"),
+         y.sec = guide_axis_manual(breaks = unit(c(.93), "npc"),
                                labels = expression("HISPANIC:Warning")),
          )+
   scale_alpha_discrete(range=c(.5,1))+
@@ -146,7 +147,3 @@ alcohol_night_plot
 no_alcohol_day_plot
 no_alcohol_night_plot
   
-
-
-
-
